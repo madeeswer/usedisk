@@ -1,0 +1,38 @@
+<div id=top>
+<h5> <a href=/> Home </a> | <a href=/doc/aboutus.html> About Us </a> | <a href=/doc/faq.html> FAQ </a> | <a href=/doc/termsandconditions.html> Terms and Conditions </a> | <a href=/doc/help.html > Help </a> &nbsp &nbsp &nbsp &nbsp &nbsp </h5>
+</div>
+
+<div id=content>
+
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+<center>
+<image src="/images/usedisk.png" />
+
+
+<br />
+
+
+<% form_tag( {:action => 'upload'}, :multipart => true) do |f| %>
+ 
+<%= file_field :upload, :file %>
+  <p>
+
+    <%= submit_tag "Upload" %> (999MB)
+  </p>
+<% end %>
+
+All users are our Premium Users.
+<br />
+
+</center>
+
+</div>

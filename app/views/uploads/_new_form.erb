@@ -1,0 +1,78 @@
+
+
+  
+
+
+<table>
+<tr>
+<td>
+<%= file_field :upload, :filename %></td><td><font color=red> * <%= error_message_on :upload, :filename %></font></td>
+</tr>
+</table>
+
+<p>
+eMail will be sent with download URL.
+<br />
+<table>
+<tr>
+<td>
+&nbsp &nbsp Description: </td><td><%= text_field(:upload, :description, :size => 25) %> </td><td> (Max 100 letters)</td>
+</tr>
+
+<tr>
+<td>
+&nbsp &nbsp To eMail ID: </td><td><%= text_field(:upload, :to_email, :size => 25) %> </td><td> <font color=red> *   <%= error_message_on :upload, :to_email %>
+</font></td>
+</tr>
+<% if ! @current_user %>
+<tr>
+<td>From eMail ID: </td><td><%= text_field(:upload, :from_email, :size => 25) %> </td><td> <font color=red> * <%= error_message_on :upload, :from_email %> </font></td>
+</tr>
+<% end %>
+
+<% if @current_user %>
+<tr>
+<td> Storage Type </td>
+<td>
+<%= select("upload","storage_type", { "Permanent Storage" => 2, "Free Storage" => 1 }, :selected => 1 ) %>
+ </td>
+ <td> <font color=red> * </font></td>
+ </tr>
+ <% end %>
+<tr>
+<td> Downloaded By </td>
+<td>
+<% if @current_user.nil? %>
+<%= select("upload","permission", { "Only Usedisk Users" => 2, "Any One" => 1  }, :selected => 1 ) %>
+
+<% else %>
+<%= select("upload","permission", { "Specific Usedisk IDs" => 4, "Only MySelf" => 3, "Only Usedisk Users" => 2, "Any One" => 1  }, :selected => 1 ) %>
+<% end %>
+ </td>
+ <td> <font color=red> * </font></td>
+ </tr>
+ <% if @current_user %>
+ <tr>
+ <td>
+ 	UseDisk ids 
+ 	</td>
+ 	<td>
+ 	<%= text_field(:upload, :access_mails, :size => 25) %>
+ 	</td>
+ 	<td>
+
+ 	</td>
+ </tr>
+ 
+ <% end %>
+
+
+ </table>
+ <% if @current_user %>
+ 	(Only these UseDisk ids can download) 
+ <% end %>
+ <br />
+
+</p>
+ <br />
+

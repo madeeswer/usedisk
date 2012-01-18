@@ -1,0 +1,3 @@
+#ENV["RUBY_HEAP_MIN_SLOTS"] = 600000
+#ENV['test'] = 600000
+

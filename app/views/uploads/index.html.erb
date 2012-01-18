@@ -1,0 +1,152 @@
+
+<!--
+@res.body 
+-->
+<div class="tabber">
+
+     <div class="tabbertab">
+	 <h2>New Upload</h2>
+<center>
+<image src="/images/usedisk.png" />
+
+
+<br />
+
+
+<% form_tag( {:action => 'upload'}, :multipart => true ) do |f| %> 
+
+
+  <%= render :partial => "new_form", :object => f %>
+
+	<p>
+		<%= submit_tag "Upload" %> (1 GB / 1000 MB)
+	</p>
+	
+<% end %>
+
+
+
+
+
+All users are our Premium Users.
+<br />
+
+</center>
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+
+
+
+
+
+
+
+
+
+
+
+<% if @current_user %>
+
+	 </div>
+
+     <div id=upload class="tabbertab">
+	 <h2>Uploads</h2>
+	 <br />
+	 List of files uploaded by you and currently available for download
+	 <br />
+	 <br />
+
+
+<div id="tableContainer" class="tableContainer">
+<table border="0" cellpadding="0" cellspacing="0" width="100%" class="scrollTable">
+<thead class="fixedHeader">
+	<tr>
+		<th width=330> File Name </th>
+		<th width=200> Description </th>
+
+		<th width=200> Action&nbsp&nbsp&nbsp&nbsp</th>
+	</tr>
+	</thead>
+	<tbody class="scrollContent">
+	<% @uploads.each do |row| %>
+		<tr>
+			<td width=320><%= row[:filename] %></td>
+			<td width=200><%= row[:description] %></td>
+
+			<% download_url = row[:id].to_s + "_" + row[:filename].to_s.gsub(".","_") + "_" + row[:created_at].strftime("%Y_%m_%d") %>
+			
+			<td width=200> <span class="class2"><a href=/downloads/<%= download_url %> >Download </a> / 
+							<%= link_to 'Delete', row, :confirm => "Are you sure, you want to delete the file (#{row[:filename]})?", :method => :delete %>
+							</span></td>
+	
+		</tr>
+	<% end %>
+
+	</tbody>
+</table>
+
+</div>
+
+
+
+
+</div>
+	 
+
+     <div class="tabbertab">
+	 <h2>Downloads</h2>
+	 	 <br />
+	 List of files downloaded by you.
+	 <br />
+	 <br />
+
+
+<div id="tableContainer" class="tableContainer">
+<table border="0" cellpadding="0" cellspacing="0" width="100%" class="scrollTable">
+<thead class="fixedHeader">
+	<tr>
+		<th width=330> File Name </th>
+		<th width=200> Description </th>
+
+		<th width=200> Date and Time </th>
+	</tr>
+	</thead>
+	<tbody class="scrollContent">
+	<% @downloads.each do |row| %>
+		<tr>
+			<% download_url = row[:upload_id].to_s + "_" + row[:filename].to_s.gsub(".","_") + "_" + row[:uploaded_at].strftime("%Y_%m_%d") %>
+			<td width=35%><span class="class2"><a href=/downloads/<%= download_url %> > <%= row[:filename] %> </a></span></td>
+			<td width=35%><%= row[:description] %></td>
+			<td width=15%><%= row[:created_at].strftime("%c") %></td>
+
+			
+	
+		</tr>
+	<% end %>
+
+	</tbody>
+</table>
+
+</div>
+
+	 
+	 
+	 
+	 
+	 
+	 </div>
+
+<% end %>
+		
+<div>
+
+
+
+
+

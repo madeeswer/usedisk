@@ -1,0 +1,102 @@
+
+<div class="tabber">
+
+     <div class="tabbertab">
+	 <h2>Start Download</h2>
+	 
+
+<center>
+<image src="/images/usedisk.png" />
+<br />
+<br />
+<br />
+
+<br />
+
+
+<br />
+
+<% form_tag( {:action => 'start'}, :multipart => true, :id => "#{@id}") do |f| %>
+    <input type=hidden name="id" value= "<%= @id %>" />
+    <input type=hidden name="number" value= "<%= @number %>" />
+
+
+<br />
+File Name : <%= @filename %>
+<br />
+<br />
+Description : <%= @description %>
+<br />
+<br />
+
+        <% # image_tag ( @image   ) %>
+<br />
+
+        <% # text_field(:download, :verification, :size => 13) %>
+
+<br />
+
+    <%= submit_tag "Download" %>
+  </p>
+<% end %>
+
+
+</center>
+
+
+
+</center>
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+
+
+
+
+
+
+
+
+
+
+
+<% if @current_user %>
+
+	 </div>
+
+
+		
+
+
+
+<% end %>
+
+
+<div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

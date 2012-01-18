@@ -1,0 +1,555 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta name="google-site-verification" content="1lc67cro9jyCTWG9peIR25QreFk0hI8ct2dGgU6BUsg" />
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <meta name="description" content="UseDisk is a free file sharing, Hosting website with free premium accounts. Free online storage, upload, download, ad-free direct link for downloads are other services provided by UseDisk." />
+ <% if controller.controller_name == 'downloads' %>
+
+  <meta name="keywords" content="'use disk','usedisk',usedisk.com,'<%= @id %>','download <%= @id %>', 'free online storage','free premium account',free,premium,use,disk,account,ad-free direct link,unlimited,upload,download,free upload,free download,free file sharing,unlimited upload,unlimietd download" />
+  <title>UseDisk - Download - <%= @id %></title>
+  <% else %>
+  <meta name="keywords" content="'use disk','usedisk',usedisk.com,'free online storage','free premium account',free,premium,use,disk,account,ad-free direct link,unlimited,upload,download,free upload,free download,free file sharing,unlimited upload,unlimietd download" />
+  <title>UseDisk - Free File Sharing, Online Storage, Premium Accounts,Upload,Download </title>
+  <% end %> 
+  
+  <%= stylesheet_link_tag 'scaffold' %>
+  <%= javascript_include_tag "prototype" %>
+  
+  <script type="text/javascript" src="/javascripts/tabber.js"></script>
+<link rel="stylesheet" href="/stylesheets/example.css" TYPE="text/css" MEDIA="screen">
+<link rel="shortcut icon" type="image/ico" href="/images/favicon.ico" />
+
+
+<script type="text/javascript">
+
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+
+</script>
+
+
+<script type="text/javascript">
+
+/* Optional: Temporarily hide the "tabber" class so it does not "flash"
+   on the page as plain HTML. After tabber runs, the class is changed
+   to "tabberlive" and it will appear. */
+
+document.write('<style type="text/css">.tabber{display:none;}<\/style>');
+</script>
+  
+
+
+    <style type="text/css" media="screen">
+      body {
+        margin: 0;
+        margin-bottom: 25px;
+        padding: 0;
+        background-color: #f0f0f0;
+        font-family: "Lucida Grande", "Bitstream Vera Sans", "Verdana";
+        font-size: 13px;
+        color: #333;
+      }
+      
+      h1 {
+        font-size: 28px;
+        color: #000;
+      }
+      
+      a  {color: #03c}
+      a:hover {
+        background-color: white;
+        color: white;
+        text-decoration: none;
+      }
+      
+      
+      #page {
+        background-color: #f0f0f0;
+        width: 990px;
+        margin: 0;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      
+      #content {
+        float: right;
+        background-color: white;
+        border: 3px solid #aaa;
+        border-top: none;
+        padding: 25px;
+        width: 490px;
+      }
+      
+      #sidebar {
+        float: right;
+        width: 190px;
+        padding: 5px;
+
+      }
+      
+      #leftsidebar {
+        float: left;
+        width: 239px;
+      }
+
+
+      
+
+      #footer {
+        clear: both;
+      }
+      
+
+
+
+      #header {
+        #background-image: url("images/rails.png");
+        background-repeat: no-repeat;
+        background-position: top left;
+        height: 64px;
+      }
+      #header h1, #header h2 {margin: 0}
+      #header h2 {
+        color: #888;
+        font-weight: normal;
+        font-size: 16px;
+      }
+      
+      
+      #about h3 {
+        margin: 0;
+        margin-bottom: 10px;
+        font-size: 14px;
+      }
+      
+      #about-content {
+        background-color: #ffd;
+        border: 1px solid #fc0;
+        margin-left: -11px;
+      }
+      #about-content table {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        font-size: 11px;
+        border-collapse: collapse;
+      }
+      #about-content td {
+        padding: 10px;
+        padding-top: 3px;
+        padding-bottom: 3px;
+      }
+      #about-content td.name  {color: #555}
+      #about-content td.value {color: #000}
+      
+      #about-content.failure {
+        background-color: #fcc;
+        border: 1px solid #f00;
+      }
+      #about-content.failure p {
+        margin: 0;
+        padding: 10px;
+      }
+      
+      
+      #getting-started {
+        border-top: 1px solid #ccc;
+        margin-top: 25px;
+        padding-top: 15px;
+      }
+      #getting-started h1 {
+        margin: 0;
+        font-size: 20px;
+      }
+      #getting-started h2 {
+        margin: 0;
+        color: #333;
+        margin-bottom: 25px;
+      }
+      #getting-started ol {
+        margin-left: 0;
+        padding-left: 0;
+      }
+      #getting-started li {
+        color: #888;
+        margin-bottom: 25px;
+      }
+      #getting-started li h2 {
+        margin: 0;
+        color: #333;
+      }
+      #getting-started li p {
+        color: #555;
+      }
+      
+      
+      
+      
+      #sidebar ul {
+        margin-left: 0;
+        padding-left: 0;
+      }
+      #sidebar ul h3 {
+        margin-top: 25px;
+        font-size: 16px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #ccc;
+      }
+      #sidebar li {
+        list-style-type: none;
+      }
+      #sidebar ul.links li {
+        margin-bottom: 5px;
+      }
+      
+    </style>
+<!--
+    <script type="text/javascript" src="javascripts/prototype.js"></script>
+    <script type="text/javascript" src="javascripts/effects.js"></script>
+-->
+
+
+<script type="text/javascript">
+
+try {
+
+var pageTracker = _gat._getTracker("UA-15599653-1");
+
+pageTracker._trackPageview();
+
+} catch(err) {}</script>
+
+
+
+
+<style type="text/css">
+.class1 A:link {text-decoration: none; color: blue}
+.class1 A:visited {text-decoration: none; color: blue}
+.class1 A:active {text-decoration: none}
+.class1 A:hover {font-size:24; font-weight:bold; color: red;}
+</style>
+
+<style type="text/css">
+.class2 A:link {text-decoration: none; color: blue}
+.class2 A:visited {text-decoration: none; color: blue}
+.class2 A:active {text-decoration: none}
+.class2 A:hover {font-size:24; color: red;}
+</style>
+
+
+</head>
+<body>
+
+
+
+    <div id="page">
+      <div id="sidebar">
+        <ul id="sidebar-items">
+          <li>
+          <%  if !current_user %>
+	<div class="tabber">
+
+     <div class="tabbertab">
+	  <h2> Login  </h2>
+
+			<% form_for @user_session, :url => user_session_path do |f| %>
+			  <%= f.error_messages %>
+			  <%= f.label :Mail_ID%><br />
+			  <%= f.text_field :login, :size => 18 %><br />
+			  <br />
+			  <%= f.label :password %><br />
+			  <%= f.password_field :password, :size => 18 %><br />
+			  <br />
+			  <%= f.check_box :remember_me %><%= f.label :remember_me %><br />
+			  <br />
+				<center>
+			  <%= f.submit "Login" %>
+			  </center>
+			<% end %>
+
+
+     </div>
+	</div>		 
+<% end %>
+
+
+          
+          
+<div class="tabber">
+
+     <div class="tabbertab">
+	  <h2> Sponsors </h2>
+            <ul class="links">
+        <span class="class1">
+
+            <p>
+              <li><a href="http://www.maspireinfosystems.com/">Maspire Info Systems </a></li>
+	      Provides world-class IT products, services, business solutions, and outsourcing.
+			</p>
+            <p>
+              <li><a href="http://wm2010shirt.de/">wm2010shirt </a></li>
+              Tee Shirt Company. Order any type of Tee shirts. Free shipment.
+			</p>
+			<p>
+              <li><a href="http://www.stupros.com/">Spiro Solutions</a></li>
+              A final year project development company.
+			</p>
+			<p>
+
+              <li><a href="http://www.brainfold.net/">Brain Fold.net</a></li>
+		A space to discuss about information security ideas, exploits, new techniques and information sharing
+            </p>
+		</span>
+            </ul>
+		
+
+			  <br />
+			  <br />
+			  <br />
+			  <br />
+			  <br />
+			  <br />
+			  <br />
+			  <br />
+
+            <%  if ! @current_user.nil? %>
+			  <br />
+			  <br />
+			  <br />
+			  <br />
+			  <br />
+			  <br />
+			  <br />
+			  <br />
+			  <br />
+			  <br />
+			  <br />
+			  <br />
+			  <br />
+			  <br />
+			  <br />
+			  <br />
+
+
+			<% end %>
+     </div>
+
+
+
+</div>
+          </li>
+          
+        </ul>
+      </div>
+
+
+
+
+
+     <div id="leftsidebar">
+
+        <ul id="sidebar-items">
+			<div class="tabber">
+		
+		     <div class="tabbertab">
+			  <h2> Donate </h2>
+			  <p>
+				All the Service are provided for free. All the donated money will be used for maintainance and enhancement of UseDisk. You can donate here.
+		      </p>
+		      <p>
+		      
+		      
+		      
+				 <form action="https://www.paypal.com/cgi-bin/webscr" method="post">  
+				 
+				 <!-- Identify your business so that you can collect the payments. -->  
+				
+				 
+				 
+				 
+				 <input type="hidden" name="business" value="donations@usedisk.com">  
+				
+				 <!-- Specify a Donate button. -->  
+				
+				 <input type="hidden" name="cmd" value="_donations">  
+				
+				 <!-- Specify details about the contribution -->  
+				
+				 
+				 
+				 
+				 <input type="hidden" name="item_name" value="Donations for UseDisk.com.">  
+				
+				 
+				 
+				 
+				 <input type="hidden" name="item_number" value="usedisk.com">  
+				
+				 
+				 
+				 
+				 <input type="hidden" name="currency_code" value="USD">  
+				
+				  
+				
+				 
+				 
+				 
+				 <!-- Display the payment button. -->  
+				
+				 
+				<center>				 
+				 
+				 <input type="image" name="submit" border="0"  src="/images/btn_donate_LG.gif"  
+				 
+				 alt="PayPal - The safer, easier way to pay online">  
+				</center>
+				 
+				</form> 
+						      
+		      
+		      
+		      
+		      
+		      
+		      
+		      
+		      
+		      
+		      </p>
+		      <p>
+				Your one dollar money will make a big difference for us. Thanks for your interest.
+			  </p>
+		     </div>
+			</div>		 
+
+
+          
+          
+			<div class="tabber">
+			
+			     <div class="tabbertab">
+				  <h2>Why UseDisk?</h2>
+			            <p>
+							<image src="/images/marker2.gif"> Free Premium Account
+						</p>
+			            <p>
+							<image src="/images/marker2.gif"> Ad free download. Need not wait for downloading.
+						</p>
+
+			            <p>
+							<image  src="/images/marker2.gif"> Free Permanent Space
+						</p>
+			            <p>
+							<image src="/images/marker2.gif"> Secured Download URL: No computer programs can interpret the UseDisk download URL.
+                                                       Other websites might have just numbers in there URL which can be interpreted but UseDisk URL is highly encrypted. 
+						</p>
+
+			            <p>
+							<image  src="/images/marker2.gif"> 100% Free Service
+						</p>
+			            <p>
+							<image  src="/images/marker2.gif"> Secure your files from others downloading it.
+						</p>
+			            <p>
+							<image  src="/images/marker2.gif"> High Speed Download.
+						</p>
+			            <p>
+							<image  src="/images/marker2.gif"> Upload Huge Files.
+						</p>
+			            <p>
+							<image  src="/images/marker2.gif"> Free File Sharing
+						</p>
+						<br></br>
+						<br></br>
+						<br></br>
+						<br></br>
+						<br></br>
+
+			     </div>
+			
+			
+			
+			</div>
+          
+        </ul>
+
+     </div>
+
+
+
+
+
+
+
+
+
+      <div id="content">
+        <!-- <div id="header">
+		  
+         </div> -->
+
+        <div id="about">
+        <span class="class1">
+          <h5> <% if ! @current_user.nil? %>
+          			<%= @current_user.login %> | 
+          		<% end %>
+          	<a href=/> UseDisk </a> | <% if @current_user.nil? %>
+						 <a href=/account/new> Register </a> | 
+						<a href=/doc/free_premium_account.html> Free Premium Account </a> | 
+						<% end %>
+ <a href=/doc/aboutus.html> About Us </a> | <a href=/doc/faq.html> FAQ </a> | <a href=/doc/help.html > Help </a>
+
+                    <% if ! @current_user.nil? %>
+                    | <%= link_to "Logout",
+                                user_session_path,
+                                :method => :delete,
+                                :confirm => "Are you sure you want to logout?" %>
+                    <% end %>
+					  </h5>
+		</span>
+					  
+          <div id="about-content" style="display: none"></div>
+        </div>
+        
+        <div id="getting-started">
+
+		  <p style="color: green"><%= flash[:notice] %></p>
+		  <%= yield  %>
+
+
+        </div>
+      </div>
+      
+      <div id="footer">&nbsp; © Copy Rights usedisk.com |  <span class=class1> <a href=/doc/termsandconditions.html> Terms and Conditions </a> </span> | Beta  Version </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+<div class="tabber">
+
+     <div class="tabbertab">
+	 <h2>Registration</h2>
+
+<center>
+<image src="/images/usedisk.png" />
+</center>
+ 
+
+ 
+<% form_for @user, :url => account_path do |f| %>
+  <%= f.error_messages %>
+  <%= render :partial => "form", :object => f %>
+  <%= f.submit "Register" %>
+<% end %>
+
+</div>
+</div>
+
